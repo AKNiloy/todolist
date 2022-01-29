@@ -11,6 +11,11 @@ body {
 }
 header {
   font-size: 3rem;
+  position: center;
+}
+
+.h1{
+  position: left;
 }
 
 header,

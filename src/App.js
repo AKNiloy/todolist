@@ -9,6 +9,10 @@ import Form from "./components/Form";
 import ToDolist from './components/ToDolist';
 
 
+//importing video
+
+import v2 from "./components/video/v2.mp4";
+
 
 
 function App() {
@@ -19,11 +23,25 @@ function App() {
   const [filtertodos, setFilterTodos] = useState ([]);
   return (
     <div className="App">
+
+<video autoPlay loop 
+      style={{
+        position:"absolute",
+        width: "100%",
+        left : "50%",
+        top : "50%",
+        height: "100%",
+        objectFit: "cover",
+        transform : "translate(-50%, -50%)",
+        zIndex : "-1"
+      }}>
+        <source src={v2} type="video/mp4" />
+      </video>
       
       <header>
         <h1>
-          Things to Do next Week
-        </h1>
+          Just do these damn things!! 
+      </h1>
       </header>
 
       <Form 
@@ -39,7 +57,10 @@ function App() {
         setTodos={setTodos}  
         todos={todos} 
       />
+
+
     </div>
+    
   );
 }
 
