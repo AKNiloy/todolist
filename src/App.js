@@ -11,6 +11,7 @@ import ToDolist from './components/ToDolist';
 
 //importing video
 
+import v1 from "./components/video/v1.mp4";
 import v2 from "./components/video/v2.mp4";
 
 
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="App">
 
-<video autoPlay loop 
+<video autoPlay loop muted
       style={{
         position:"absolute",
         width: "100%",
@@ -40,8 +41,8 @@ function App() {
       
       <header>
         <h1>
-          Just do these damn things!! 
-      </h1>
+          Things to Do next Week
+        </h1>
       </header>
 
       <Form 
