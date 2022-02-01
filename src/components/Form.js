@@ -4,7 +4,7 @@ function Form ({status, setStatus, inputText, setInputText, todos, setTodos}) {
 
     //Write js function to use useState
     const inputTextHandler = (event) => {
-        console.log(event.target.value);
+        //console.log(event.target.value);
         setInputText(event.target.value);
     };
 

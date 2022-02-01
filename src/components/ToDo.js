@@ -30,7 +30,7 @@ function ToDo ({text, todo,  todos, setTodos}) {
                 <i className="fas fa-check"> </i>
             </button> 
             <button onClick={delHandler} className="trash-btn">
-                <i className="fas fa-trash"> </i>
+                <i className="fas fa-trash"> </i> 
             </button> 
         </div>
 

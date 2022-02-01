@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import react, {useState, useEffect} from 'react';
 
 import './App.css';
 import reactDom from 'react-dom';
@@ -18,10 +18,65 @@ import v2 from "./components/video/v2.mp4";
 
 function App() {
 
+  //state
   const [inputText, setInputText] = useState("");
   const [todos,setTodos] = useState([]);
   const [status,setStatus] = useState ("all");
   const [filtertodos, setFilterTodos] = useState ([]);
+//function
+
+
+
+//useEffect
+
+
+
+  const filterHandler = () => {
+      switch(status){
+        case 'completed':
+          setFilterTodos(todos.filter(todo => todo.completed === true ));
+          break;
+        case 'uncompleted':
+          setFilterTodos(todos.filter(todo => todo.completed === false ));
+          break;
+        default:
+          setFilterTodos(todos);
+          break;
+      }
+
+  };
+
+
+  const saveLocalTodos = () => {
+    
+      localStorage.setItem('todos',JSON.stringify(todos))
+  };
+
+
+  const getLocalTodos = () => {
+    if (localStorage.getItem('todos') === null){
+      localStorage.setItem('todos', JSON.stringify([]));
+    }
+    else {
+      let todoLocal = JSON.parse(localStorage.getItem("todos"))
+      setTodos(todoLocal);
+    }
+  };
+
+
+  //useeffects 
+
+  useEffect( () => {
+    getLocalTodos();
+  }, []);
+    
+
+  useEffect ( () => {
+    filterHandler();
+    saveLocalTodos ();
+    //getLocalTodos();
+  }, [todos, status]) ;
+
   return (
     <div className="App">
 
@@ -41,7 +96,7 @@ function App() {
       
       <header>
         <h1>
-          Things to Do next Week
+          List out your daily activities!!!
         </h1>
       </header>
 
@@ -57,6 +112,8 @@ function App() {
       <ToDolist 
         setTodos={setTodos}  
         todos={todos} 
+        filtertodos={filtertodos}
+        setFilterTodos = {setFilterTodos}
       />
 
 

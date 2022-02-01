@@ -5,14 +5,16 @@ import React from "react";
 import ToDo from "./ToDo";
 
 
-function ToDolist({todos, setTodos}){
+function ToDolist({todos, setTodos, filtertodos}){
 
     
+    //console.log(filtertodos);
+    //console.log(todos);
 
     return (
         <div className="todo-container">
             <ul className="todo-list">
-                 {todos.map((todo) => (
+                 {filtertodos.map((todo) => (
                      <ToDo 
                      setTodos = {setTodos}
                      todos= {todos}
